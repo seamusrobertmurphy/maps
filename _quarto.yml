@@ -6,7 +6,7 @@ website:
   navbar:
     left:
       - href: index.qmd
-        text: Home
+        text: Site Map
       - locator-map.qmd
       - population-map.qmd
       - watershed-map.qmd
@@ -20,12 +20,12 @@ format:
     code-fold: false
     code-copy: true
     code-overflow: scroll
-    code-line-numbers: true
     toc: true
-    toc_depth: 3
-    toc_float: 
-      collapsed: false
-    number-sections: true
+    grid:
+      sidebar-width: 300px
+      body-width: 900px
+      margin-width: 300px
+      gutter-width: 1.5rem
 
 editor: visual
 

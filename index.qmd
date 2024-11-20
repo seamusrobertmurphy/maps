@@ -48,18 +48,18 @@ mapviewOptions(fgb = FALSE)
 sf::sf_use_s2(use_s2 = FALSE)
 ```
 
-![Site map of project area (1:150,00)](assets/outputs/01-site-map.png)
+![Figure 1: Site Map output of project area at scale of 1:150,00 saved in higher-resolution .png format](assets/outputs/01-site-map.png)
 
-#### Template structure
+## 1. Mapping workflow structure
 
--   Define map extent & projection
--   Download high-ressolution basemap
+-   Define extent & project projection
+-   Download high-resolution basemap
 -   Customize layers & attributes
--   Choose output format & resolution
+-   Format output & resolution
 
-## 1. Map extent & projection
+## 2. Declare extent & projection
 
-```{r load-aoi}
+```{r site-aoi}
 #| warning: false
 #| message: false
 #| include: false
@@ -79,9 +79,11 @@ tmap::tm_shape(aoi_site) +
   tmap::tm_borders(lwd = 2, col = "red")
 ```
 
-## 2. Download basemap
+Figure 2: Interactive site map of project boundary shapefile and default basemap
 
-```{r download-basemap}
+## 3. Download basemap
+
+```{r site-basemap}
 #| warning: false
 #| message: false
 #| include: false
@@ -107,12 +109,11 @@ tmap::tm_shape(basemap_150k) + tm_rgb() +
   tmap::tm_compass() -> site_draft
 ```
 
-![Figure 3: Map draft of site boundary and downloaded basemap tiles](assets/outputs/01-site-draft.png)
+![Figure 3: Site map of downloaded basemap and default map attributes (1:150,000)](assets/outputs/01-site-draft.png)
 
+## 4. Customize layout & attributes
 
-## 3. Customize layout & attributes
-
-```{r customize-map}
+```{r customize-site-map}
 #| warning: false
 #| message: false
 #| include: false
@@ -124,7 +125,7 @@ site_map = tmap::tm_shape(basemap_150k) + tm_rgb() +
   tmap::tm_shape(aoi_site) +
   tmap::tm_borders(lwd = 1, col = "red") +
   tmap::tm_graticules(lines=T,labels.rot=c(0,90),lwd=0.2) +
-  tmap::tm_credits("EPSG:4326", position = c("left", "bottom")) + 
+  tmap::tm_credits("EPSG:4326", position = c("left", "bottom")) +
   tmap::tm_scalebar(c(0, 10, 20, 40), position = c("RIGHT", "BOTTOM"), text.size = .5) +
   tmap::tm_compass(
     type = "4star", size = 1.5,
@@ -133,9 +134,9 @@ site_map = tmap::tm_shape(basemap_150k) + tm_rgb() +
     )
 ```
 
-## 4. Save output & resolution
+## 5. Format output & resolution
 
-```{r save-map}
+```{r save-site-map}
 #| warning: false
 #| message: false
 #| include: false
