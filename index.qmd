@@ -18,7 +18,8 @@ easypackages::packages(
   "dendextend", "digest","DiagrammeR","dtwclust", "downlit",
   "e1071", "exactextractr","elevatr",
   "FNN", "future",
-  "gdalcubes", "gdalUtilities", "geojsonsf", "geos", "ggplot2","ggspatial","grid", "giscoR",
+  "gdalcubes", "gdalUtilities", "geojsonsf", "geos", 
+  "ggplot2", "ggstats", "ggspatial","ggmap", "ggplotify", "ggpubr", "ggrepel",
   "hdf5r", "httr", "httr2",
   "jsonlite", 
   "kohonen", 
@@ -44,17 +45,19 @@ knitr::opts_chunk$set(
 options(htmltools.dir.version = FALSE, htmltools.preserve.raw = FALSE)
 
 mapviewOptions(fgb = FALSE)
-sf_use_s2(FALSE)
+sf::sf_use_s2(use_s2 = FALSE)
 ```
 
-![](assets/outputs/map_locator_site.png)
+![Site map of project area (1:150,00)](assets/outputs/01-site-map.png)
 
 #### Template structure
 
-1.  Define map window & projection
-2.  Download high-res basemap
-3.  Customize layers & attributes
-4.  Choose output & format resolution
+-   Define map extent & projection
+-   Download high-ressolution basemap
+-   Customize layers & attributes
+-   Choose output format & resolution
+
+## 1. Map extent & projection
 
 ```{r load-aoi}
 #| warning: false
@@ -76,3 +79,76 @@ tmap::tm_shape(aoi_site) +
   tmap::tm_borders(lwd = 2, col = "red")
 ```
 
+## 2. Download basemap
+
+```{r download-basemap}
+#| warning: false
+#| message: false
+#| include: false
+#| echo: true
+#| eval: false
+#| comment: NA
+
+# zoom = 12 sources basemap at scale of 1:150,000
+basemap_150k = maptiles::get_tiles(
+  bbox_site, 
+  zoom      = 12, 
+  crop      = T,
+  provider  = "OpenTopoMap"
+)
+
+# Static map mode: "plot"
+tmap::tmap_mode("plot")
+tmap::tm_shape(basemap_150k) + tm_rgb() + 
+  tmap::tm_shape(aoi_site) +
+  tmap::tm_borders() +
+  tmap::tm_graticules() +
+  tmap::tm_scalebar() + 
+  tmap::tm_compass() -> site_draft
+```
+
+![Figure 3: Map draft of site boundary and downloaded basemap tiles](assets/outputs/01-site-draft.png)
+
+
+## 3. Customize layout & attributes
+
+```{r customize-map}
+#| warning: false
+#| message: false
+#| include: false
+#| echo: true
+#| eval: false
+#| comment: NA
+
+site_map = tmap::tm_shape(basemap_150k) + tm_rgb() + 
+  tmap::tm_shape(aoi_site) +
+  tmap::tm_borders(lwd = 1, col = "red") +
+  tmap::tm_graticules(lines=T,labels.rot=c(0,90),lwd=0.2) +
+  tmap::tm_credits("EPSG:4326", position = c("left", "bottom")) + 
+  tmap::tm_scalebar(c(0, 10, 20, 40), position = c("RIGHT", "BOTTOM"), text.size = .5) +
+  tmap::tm_compass(
+    type = "4star", size = 1.5,
+    color.dark = "gray60", text.color = "gray60",
+    position = c("left", "top")
+    )
+```
+
+## 4. Save output & resolution
+
+```{r save-map}
+#| warning: false
+#| message: false
+#| include: false
+#| echo: true
+#| eval: false
+#| comment: NA
+
+# `width` & `height` controls output resolution 
+# `dpi` controls size of map attributes relative to output resolution
+tmap::tmap_save(
+  site_map, "/Users/seamus/Repos/maps/assets/outputs/01-site-map.png", 
+  width=15120, height=15120, asp=0, dpi=2400
+  )
+```
+
+![Figure 4: Final product with customized attributes rendered in higher-resolution .png format](assets/outputs/01-site-map.png)

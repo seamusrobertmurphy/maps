@@ -52,7 +52,7 @@ sf_use_s2(FALSE)
 #### Template structure
 
 -   Define map window & projection
--   Download high-res basemap
+-   Download basemaps with higher resolution
 -   Customize layers & attributes
 -   Choose output & format resolution
 
@@ -96,7 +96,7 @@ tmap::tm_shape(aoi_site) +
 #| eval: true
 #| comment: NA
 
-# zoom = 8 sources basemap at scale of 1:2,000,000
+# zoom = 8 returns scale of 1:2,000,000
 basemap_4m = maptiles::get_tiles(
   bbox_country, 
   zoom      = 8, 
@@ -150,7 +150,6 @@ ggsave("./outputs/map_locator_inset.png", map_locator_inset)
 ![](assets/outputs/map_locator_inset.png)
 
 ## 4. Save output & resolution
-
 
 ```{r customize-map}
 #| warning: false
