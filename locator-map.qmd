@@ -1,0 +1,172 @@
+---
+title: "Locator Map"
+resources:
+  - "*.png"
+---
+
+```{r setup}
+#| warning: false
+#| message: false
+#| include: false
+#| echo: false
+#| comment: NA
+
+easypackages::packages(  
+  "aws.s3", 
+  "bslib",
+  "caret", "cli", "cols4all", "covr", "cowplot",
+  "dendextend", "digest","DiagrammeR","dtwclust", "downlit",
+  "e1071", "exactextractr","elevatr",
+  "FNN", "future",
+  "gdalcubes", "gdalUtilities", "geojsonsf", "geos", "ggplot2","ggspatial","grid", "giscoR",
+  "hdf5r", "httr", "httr2",
+  "jsonlite", 
+  "kohonen", 
+  "leafem", "libgeos","luz","lwgeom", "leaflet",
+  "mapedit", "mapview", "maptiles", "methods","mgcv","mapinsetr",
+  "ncdf4", "nnet", 
+  "openxlsx", 
+  "parallel", "plotly",
+  "randomForest", "rasterVis", "raster", "Rcpp", "RcppArmadillo", 
+  "RcppCensSpatial","rayshader", "RcppEigen", "RcppParallel", 
+  "RColorBrewer", "reactable", "rsconnect","RStoolbox", "rts", 
+  "s2", "sf", "scales", "sits","spdep", "stars", "stringr","supercells", 
+  "terra", "testthat", "tidyverse", "tidyterra","tools", 
+  "tmap", "tmaptools", "terrainr",
+  "xgboost"
+)
+
+
+knitr::opts_chunk$set(
+  echo = TRUE, message = FALSE, warning = FALSE,
+  error = FALSE, comment = NA, tidy.opts = list(width.cutoff = 6)
+) 
+options(htmltools.dir.version = FALSE, htmltools.preserve.raw = FALSE)
+
+mapviewOptions(fgb = FALSE)
+sf_use_s2(FALSE)
+```
+
+![](assets/outputs/map_locator_inset.png)
+
+#### Template structure
+
+-   Define map window & projection
+-   Download high-res basemap
+-   Customize layers & attributes
+-   Choose output & format resolution
+
+## 1. Define window & projection
+
+```{r load-aoi}
+#| warning: false
+#| message: false
+#| include: false
+#| echo: true
+#| comment: NA
+
+crs_master = st_crs('epsg:4326')
+aoi_site   = sf::read_sf("/Users/seamus/Repos/maps/assets/inputs/chilwa_watershed_4326.shp") |>
+  st_cast() |> st_transform(crs_master)
+aoi_country = giscoR::gisco_get_countries(country = "Malawi", resolution = "3") |>
+  st_cast() |> st_transform(crs_master)
+aoi_region = giscoR::gisco_get_countries(
+  country = c("Malawi", "Zambia", "Tanzania", "Mozambique"), resolution = "3") |>
+  st_cast() |> st_transform(crs_master)
+
+bbox_site  = terrainr::add_bbox_buffer(aoi_site, 20000, "meters")
+bbox_country = terrainr::add_bbox_buffer(aoi_country, 40000, "meters")
+bbox_region = terrainr::add_bbox_buffer(aoi_region, 80000, "meters")
+vbox_site = vect(bbox_site)
+vbox_country = vect(bbox_country)
+vbox_region = vect(bbox_region)
+
+# Interactive map mode: "view" 
+tmap::tm_shape(aoi_site) +
+  tmap::tm_borders(lwd = 2, col = "red")
+```
+
+## 2. Download basemap
+
+```{r download-basemap}
+#| warning: false
+#| message: false
+#| include: false
+#| echo: true
+#| eval: true
+#| comment: NA
+
+# zoom = 8 sources basemap at scale of 1:2,000,000
+basemap_4m = maptiles::get_tiles(
+  bbox_country, 
+  zoom      = 8, 
+  crop      = T,
+  provider  = "CartoDB.Positron"
+)
+
+tmap::tm_shape(basemap_4m) + tm_rgb() + 
+  tmap::tm_shape(aoi_region) +
+  tmap::tm_borders(lwd = 0.4, col = "black") +
+  tmap::tm_shape(aoi_site) +
+  tmap::tm_borders(lwd = 2, col = "red") +
+  tmap::tm_graticules(lines=T,labels.rot=c(0,90),lwd=0.2) +
+  tmap::tm_credits("EPSG:4326", position = c("left", "bottom")) + 
+  tmap::tm_scalebar(
+    c(0, 10, 20, 40), 
+    position = c("right", "bottom"), 
+    text.size = .5
+    ) +
+  tmap::tm_compass(
+    type = "4star", size = 1.5,
+    color.dark = "gray60", text.color = "gray60",
+    position = c("left", "top")
+    ) 
+```
+
+![](assets/outputs/map_locator_country.png)
+
+## 3. Customize layout
+
+```{r customize-map}
+#| warning: false
+#| message: false
+#| include: false
+#| echo: true
+#| eval: true
+#| comment: NA
+
+main_map = tmap::tmap_grob(map_locator_site)
+inset_map = tmap::tmap_grob(map_locator_country)
+
+map_locator_inset = ggdraw() +
+  draw_plot(main_map) +
+  draw_plot(inset_map, x = -0.39, y=0.2, height = 0.70)
+map_locator_inset
+
+ggsave("./outputs/map_locator_inset.png", map_locator_inset)
+#plot_grid(inset_map,main_map,nrow=1)
+```
+
+![](assets/outputs/map_locator_inset.png)
+
+## 4. Save output & resolution
+
+
+```{r customize-map}
+#| warning: false
+#| message: false
+#| include: false
+#| echo: true
+#| eval: true
+#| comment: NA
+
+map_locator_site
+
+# `width` & `height` controls output resolution 
+# `dpi` controls size of map attributes relative to output resolution
+tmap::tmap_save(
+  map_locator_site, 
+  "./outputs/map_locator_site.png", 
+  width=15120, height=15120, asp=0, dpi=2400
+  )
+```
