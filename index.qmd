@@ -1,0 +1,78 @@
+---
+title: "Site Map"
+resources:
+  - "*.png"
+---
+
+```{r setup}
+#| warning: false
+#| message: false
+#| include: false
+#| echo: false
+#| comment: NA
+
+easypackages::packages(  
+  "aws.s3", 
+  "bslib",
+  "caret", "cli", "cols4all", "covr", "cowplot",
+  "dendextend", "digest","DiagrammeR","dtwclust", "downlit",
+  "e1071", "exactextractr","elevatr",
+  "FNN", "future",
+  "gdalcubes", "gdalUtilities", "geojsonsf", "geos", "ggplot2","ggspatial","grid", "giscoR",
+  "hdf5r", "httr", "httr2",
+  "jsonlite", 
+  "kohonen", 
+  "leafem", "libgeos","luz","lwgeom", "leaflet",
+  "mapedit", "mapview", "maptiles", "methods","mgcv","mapinsetr",
+  "ncdf4", "nnet", 
+  "openxlsx", 
+  "parallel", "plotly",
+  "randomForest", "rasterVis", "raster", "Rcpp", "RcppArmadillo", 
+  "RcppCensSpatial","rayshader", "RcppEigen", "RcppParallel", 
+  "RColorBrewer", "reactable", "rsconnect","RStoolbox", "rts", 
+  "s2", "sf", "scales", "sits","spdep", "stars", "stringr","supercells", 
+  "terra", "testthat", "tidyverse", "tidyterra","tools", 
+  "tmap", "tmaptools", "terrainr",
+  "xgboost"
+)
+
+
+knitr::opts_chunk$set(
+  echo = TRUE, message = FALSE, warning = FALSE,
+  error = FALSE, comment = NA, tidy.opts = list(width.cutoff = 6)
+) 
+options(htmltools.dir.version = FALSE, htmltools.preserve.raw = FALSE)
+
+mapviewOptions(fgb = FALSE)
+sf_use_s2(FALSE)
+```
+
+![](assets/outputs/map_locator_site.png)
+
+#### Template structure
+
+1.  Define map window & projection
+2.  Download high-res basemap
+3.  Customize layers & attributes
+4.  Choose output & format resolution
+
+```{r load-aoi}
+#| warning: false
+#| message: false
+#| include: false
+#| eval: true
+#| echo: true
+#| comment: NA
+
+crs_master = st_crs('epsg:4326')
+aoi_site   = sf::read_sf("/Users/seamus/Repos/maps/assets/inputs/chilwa_watershed_4326.shp") |>
+  st_cast() |> st_transform(crs_master)
+bbox_site  = terrainr::add_bbox_buffer(aoi_site, 20000, "meters")
+vbox_site = vect(bbox_site)
+
+# Interactive map mode: "view" 
+tmap::tmap_mode("view")
+tmap::tm_shape(aoi_site) +
+  tmap::tm_borders(lwd = 2, col = "red")
+```
+
