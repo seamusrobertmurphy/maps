@@ -1,0 +1,26 @@
+project:
+  type: website
+
+website:
+  title: "maps"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - locator-map.qmd
+      - population-map.qmd
+      - watershed-map.qmd
+
+format:
+  html:
+    highlight-style: github
+    theme: cosmo
+    css: styles.css
+    toc: true
+    code-fold: false
+    code-copy: true
+    code-overflow: scroll
+    code-line-numbers: true
+
+editor: visual
+
