@@ -1,37 +1,184 @@
 [
   {
+    "objectID": "locator-map.html",
+    "href": "locator-map.html",
+    "title": "Locator Map",
+    "section": "",
+    "text": "Figure 1: Final product of locator map of site and regional location"
+  },
+  {
+    "objectID": "locator-map.html#define-window-projection",
+    "href": "locator-map.html#define-window-projection",
+    "title": "Locator Map",
+    "section": "Define window & projection",
+    "text": "Define window & projection\nFigure 2: Interactive map of site location within national borders with default basemap"
+  },
+  {
+    "objectID": "locator-map.html#download-basemap",
+    "href": "locator-map.html#download-basemap",
+    "title": "Locator Map",
+    "section": "3. Download basemap",
+    "text": "3. Download basemap\n\n\n\nFigure 3: Regional map showing site location within national borders (1:4,000,000)"
+  },
+  {
+    "objectID": "locator-map.html#customize-multiple-map-layout",
+    "href": "locator-map.html#customize-multiple-map-layout",
+    "title": "Locator Map",
+    "section": "Customize multiple map layout",
+    "text": "Customize multiple map layout\n\n\n\nFigure 4: Locator map showing site area and location at 1:4,000,000 & 1:150,000 scales"
+  },
+  {
+    "objectID": "locator-map.html#save-output-resolution",
+    "href": "locator-map.html#save-output-resolution",
+    "title": "Locator Map",
+    "section": "Save output & resolution",
+    "text": "Save output & resolution"
+  },
+  {
+    "objectID": "assets/inputs/rivers_country.html",
+    "href": "assets/inputs/rivers_country.html",
+    "title": "Map Templates",
+    "section": "",
+    "text": "&lt;!DOCTYPE qgis PUBLIC ‘http://mrcc.com/qgis.dtd’ ‘SYSTEM’&gt;     dataset\n\n\n       GEOGCRS[“WGS 84”,ENSEMBLE[“World Geodetic System 1984 ensemble”,MEMBER[“World Geodetic System 1984 (Transit)”],MEMBER[“World Geodetic System 1984 (G730)”],MEMBER[“World Geodetic System 1984 (G873)”],MEMBER[“World Geodetic System 1984 (G1150)”],MEMBER[“World Geodetic System 1984 (G1674)”],MEMBER[“World Geodetic System 1984 (G1762)”],ELLIPSOID[“WGS 84”,6378137,298.257223563,LENGTHUNIT[“metre”,1]],ENSEMBLEACCURACY[2.0]],PRIMEM[“Greenwich”,0,ANGLEUNIT[“degree”,0.0174532925199433]],CS[ellipsoidal,2],AXIS[“geodetic latitude (Lat)”,north,ORDER[1],ANGLEUNIT[“degree”,0.0174532925199433]],AXIS[“geodetic longitude (Lon)”,east,ORDER[2],ANGLEUNIT[“degree”,0.0174532925199433]],USAGE[SCOPE[“Horizontal component of 3D system.”],AREA[“World.”],BBOX[-90,-180,90,180]],ID[“EPSG”,4326]] +proj=longlat +datum=WGS84 +no_defs 3452 4326 EPSG:4326 WGS 84 longlat EPSG:7030 true"
+  },
+  {
+    "objectID": "assets/inputs/chilwa_watershed_extent.html",
+    "href": "assets/inputs/chilwa_watershed_extent.html",
+    "title": "Map Templates",
+    "section": "",
+    "text": "&lt;!DOCTYPE qgis PUBLIC ‘http://mrcc.com/qgis.dtd’ ‘SYSTEM’&gt;     \n\n\n         0 0     false"
+  },
+  {
+    "objectID": "assets/inputs/lakes_country.html",
+    "href": "assets/inputs/lakes_country.html",
+    "title": "Map Templates",
+    "section": "",
+    "text": "&lt;!DOCTYPE qgis PUBLIC ‘http://mrcc.com/qgis.dtd’ ‘SYSTEM’&gt;     dataset\n\n\n       GEOGCRS[“WGS 84”,ENSEMBLE[“World Geodetic System 1984 ensemble”,MEMBER[“World Geodetic System 1984 (Transit)”],MEMBER[“World Geodetic System 1984 (G730)”],MEMBER[“World Geodetic System 1984 (G873)”],MEMBER[“World Geodetic System 1984 (G1150)”],MEMBER[“World Geodetic System 1984 (G1674)”],MEMBER[“World Geodetic System 1984 (G1762)”],ELLIPSOID[“WGS 84”,6378137,298.257223563,LENGTHUNIT[“metre”,1]],ENSEMBLEACCURACY[2.0]],PRIMEM[“Greenwich”,0,ANGLEUNIT[“degree”,0.0174532925199433]],CS[ellipsoidal,2],AXIS[“geodetic latitude (Lat)”,north,ORDER[1],ANGLEUNIT[“degree”,0.0174532925199433]],AXIS[“geodetic longitude (Lon)”,east,ORDER[2],ANGLEUNIT[“degree”,0.0174532925199433]],USAGE[SCOPE[“Horizontal component of 3D system.”],AREA[“World.”],BBOX[-90,-180,90,180]],ID[“EPSG”,4326]] +proj=longlat +datum=WGS84 +no_defs 3452 4326 EPSG:4326 WGS 84 longlat EPSG:7030 true"
+  },
+  {
+    "objectID": "site-map.html",
+    "href": "site-map.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Site Map",
     "section": "",
-    "text": "Site map of project area (1:150,00)"
+    "text": "Figure 1: Site Map output of project area at scale of 1:150,00 saved in higher-resolution .png format"
   },
   {
     "objectID": "index.html#map-extent-projection",
     "href": "index.html#map-extent-projection",
     "title": "Site Map",
-    "section": "1 1. Map extent & projection",
-    "text": "1 1. Map extent & projection"
+    "section": "Map extent & projection",
+    "text": "Map extent & projection\nFigure 2: Interactive site map of project boundary shapefile and default basemap"
   },
   {
     "objectID": "index.html#download-basemap",
     "href": "index.html#download-basemap",
     "title": "Site Map",
-    "section": "2 2. Download basemap",
-    "text": "2 2. Download basemap\n\n\n\nFigure 3: Map draft of site boundary and downloaded basemap tiles"
+    "section": "3. Download basemap",
+    "text": "3. Download basemap\n\n\n\nFigure 3: Site map of downloaded basemap and default map attributes (1:150,000)"
   },
   {
     "objectID": "index.html#customize-layout-attributes",
     "href": "index.html#customize-layout-attributes",
     "title": "Site Map",
-    "section": "3 3. Customize layout & attributes",
-    "text": "3 3. Customize layout & attributes"
+    "section": "4. Customize layout & attributes",
+    "text": "4. Customize layout & attributes"
   },
   {
     "objectID": "index.html#save-output-resolution",
     "href": "index.html#save-output-resolution",
     "title": "Site Map",
-    "section": "4 4. Save output & resolution",
-    "text": "4 4. Save output & resolution\n\n\n\nFigure 4: Final product with customized attributes rendered in higher-resolution .png format"
+    "section": "Save output & resolution",
+    "text": "Save output & resolution\n\n\n\nFigure 4: Final product with customized attributes rendered in higher-resolution .png format"
+  },
+  {
+    "objectID": "assets/inputs/rivers_site.html",
+    "href": "assets/inputs/rivers_site.html",
+    "title": "Map Templates",
+    "section": "",
+    "text": "&lt;!DOCTYPE qgis PUBLIC ‘http://mrcc.com/qgis.dtd’ ‘SYSTEM’&gt;     \n\n\n         0 0     false"
+  },
+  {
+    "objectID": "assets/inputs/chilwa_watershed_4326.html",
+    "href": "assets/inputs/chilwa_watershed_4326.html",
+    "title": "Map Templates",
+    "section": "",
+    "text": "&lt;!DOCTYPE qgis PUBLIC ‘http://mrcc.com/qgis.dtd’ ‘SYSTEM’&gt;     dataset\n\n\n      GEOGCRS[“WGS 84”,ENSEMBLE[“World Geodetic System 1984 ensemble”,MEMBER[“World Geodetic System 1984 (Transit)”],MEMBER[“World Geodetic System 1984 (G730)”],MEMBER[“World Geodetic System 1984 (G873)”],MEMBER[“World Geodetic System 1984 (G1150)”],MEMBER[“World Geodetic System 1984 (G1674)”],MEMBER[“World Geodetic System 1984 (G1762)”],MEMBER[“World Geodetic System 1984 (G2139)”],ELLIPSOID[“WGS 84”,6378137,298.257223563,LENGTHUNIT[“metre”,1]],ENSEMBLEACCURACY[2.0]],PRIMEM[“Greenwich”,0,ANGLEUNIT[“degree”,0.0174532925199433]],CS[ellipsoidal,2],AXIS[“geodetic latitude (Lat)”,north,ORDER[1],ANGLEUNIT[“degree”,0.0174532925199433]],AXIS[“geodetic longitude (Lon)”,east,ORDER[2],ANGLEUNIT[“degree”,0.0174532925199433]],USAGE[SCOPE[“Horizontal component of 3D system.”],AREA[“World.”],BBOX[-90,-180,90,180]],ID[“EPSG”,4326]] +proj=longlat +datum=WGS84 +no_defs 3452 4326 EPSG:4326 WGS 84 longlat EPSG:7030 true"
+  },
+  {
+    "objectID": "assets/inputs/lakes_site.html",
+    "href": "assets/inputs/lakes_site.html",
+    "title": "Map Templates",
+    "section": "",
+    "text": "&lt;!DOCTYPE qgis PUBLIC ‘http://mrcc.com/qgis.dtd’ ‘SYSTEM’&gt;     dataset\n\n\n       GEOGCRS[“WGS 84”,ENSEMBLE[“World Geodetic System 1984 ensemble”,MEMBER[“World Geodetic System 1984 (Transit)”],MEMBER[“World Geodetic System 1984 (G730)”],MEMBER[“World Geodetic System 1984 (G873)”],MEMBER[“World Geodetic System 1984 (G1150)”],MEMBER[“World Geodetic System 1984 (G1674)”],MEMBER[“World Geodetic System 1984 (G1762)”],ELLIPSOID[“WGS 84”,6378137,298.257223563,LENGTHUNIT[“metre”,1]],ENSEMBLEACCURACY[2.0]],PRIMEM[“Greenwich”,0,ANGLEUNIT[“degree”,0.0174532925199433]],CS[ellipsoidal,2],AXIS[“geodetic latitude (Lat)”,north,ORDER[1],ANGLEUNIT[“degree”,0.0174532925199433]],AXIS[“geodetic longitude (Lon)”,east,ORDER[2],ANGLEUNIT[“degree”,0.0174532925199433]],USAGE[SCOPE[“Horizontal component of 3D system.”],AREA[“World.”],BBOX[-90,-180,90,180]],ID[“EPSG”,4326]] +proj=longlat +datum=WGS84 +no_defs 3452 4326 EPSG:4326 WGS 84 longlat EPSG:7030 true"
+  },
+  {
+    "objectID": "assets/inputs/watershed_site.html",
+    "href": "assets/inputs/watershed_site.html",
+    "title": "Map Templates",
+    "section": "",
+    "text": "&lt;!DOCTYPE qgis PUBLIC ‘http://mrcc.com/qgis.dtd’ ‘SYSTEM’&gt;     dataset\n\n\n       GEOGCRS[“WGS 84”,ENSEMBLE[“World Geodetic System 1984 ensemble”,MEMBER[“World Geodetic System 1984 (Transit)”],MEMBER[“World Geodetic System 1984 (G730)”],MEMBER[“World Geodetic System 1984 (G873)”],MEMBER[“World Geodetic System 1984 (G1150)”],MEMBER[“World Geodetic System 1984 (G1674)”],MEMBER[“World Geodetic System 1984 (G1762)”],ELLIPSOID[“WGS 84”,6378137,298.257223563,LENGTHUNIT[“metre”,1]],ENSEMBLEACCURACY[2.0]],PRIMEM[“Greenwich”,0,ANGLEUNIT[“degree”,0.0174532925199433]],CS[ellipsoidal,2],AXIS[“geodetic latitude (Lat)”,north,ORDER[1],ANGLEUNIT[“degree”,0.0174532925199433]],AXIS[“geodetic longitude (Lon)”,east,ORDER[2],ANGLEUNIT[“degree”,0.0174532925199433]],USAGE[SCOPE[“Horizontal component of 3D system.”],AREA[“World.”],BBOX[-90,-180,90,180]],ID[“EPSG”,4326]] +proj=longlat +datum=WGS84 +no_defs 3452 4326 EPSG:4326 WGS 84 longlat EPSG:7030 true"
+  },
+  {
+    "objectID": "index.html#template-structure",
+    "href": "index.html#template-structure",
+    "title": "Site Map",
+    "section": "1. Template structure",
+    "text": "1. Template structure\n\nDefine map extent & declare projection system\nDownload high-resolution basemap\nCustomize layers & attributes\nFormat output & resolution"
+  },
+  {
+    "objectID": "index.html#declare-extent-projection",
+    "href": "index.html#declare-extent-projection",
+    "title": "Site Map",
+    "section": "2. Declare extent & projection",
+    "text": "2. Declare extent & projection\nFigure 2: Interactive site map of project boundary shapefile and default basemap"
+  },
+  {
+    "objectID": "locator-map.html#mapping-workflow",
+    "href": "locator-map.html#mapping-workflow",
+    "title": "Locator Map",
+    "section": "1. Mapping workflow",
+    "text": "1. Mapping workflow\n\nDefine map window & projection\nDownload basemaps with higher resolution\nCustomize multiple map layout\nChoose output & format resolution"
+  },
+  {
+    "objectID": "locator-map.html#declare-extent-projection",
+    "href": "locator-map.html#declare-extent-projection",
+    "title": "Locator Map",
+    "section": "2. Declare extent & projection",
+    "text": "2. Declare extent & projection\nFigure 2: Interactive map of site location within national borders with default basemap"
+  },
+  {
+    "objectID": "locator-map.html#multiple-map-layout",
+    "href": "locator-map.html#multiple-map-layout",
+    "title": "Locator Map",
+    "section": "4. Multiple map layout",
+    "text": "4. Multiple map layout\n\n\n\nFigure 4: Locator map showing site area and location at 1:4,000,000 & 1:150,000 scales"
+  },
+  {
+    "objectID": "locator-map.html#format-output-resolution",
+    "href": "locator-map.html#format-output-resolution",
+    "title": "Locator Map",
+    "section": "5. Format output & resolution",
+    "text": "5. Format output & resolution"
+  },
+  {
+    "objectID": "index.html#mapping-workflow-structure",
+    "href": "index.html#mapping-workflow-structure",
+    "title": "Site Map",
+    "section": "1. Mapping workflow structure",
+    "text": "1. Mapping workflow structure\n\nDefine extent & project projection\nDownload high-resolution basemap\nCustomize layers & attributes\nFormat output & resolution"
+  },
+  {
+    "objectID": "index.html#format-output-resolution",
+    "href": "index.html#format-output-resolution",
+    "title": "Site Map",
+    "section": "5. Format output & resolution",
+    "text": "5. Format output & resolution\n\n\n\nFigure 4: Final product with customized attributes rendered in higher-resolution .png format"
   }
 ]
